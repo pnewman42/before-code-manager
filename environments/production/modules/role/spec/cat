@@ -1,0 +1,129 @@
+[mNotice: Compiled catalog for pnewman422.mylabserver.com in environment production in 0.54 seconds[0m
+{
+  "tags": ["settings","default","node"],
+  "name": "pnewman422.mylabserver.com",
+  "version": 1506788949,
+  "code_id": null,
+  "catalog_uuid": "1338b4bd-0569-49f8-a0cf-4f47892b2412",
+  "catalog_format": 1,
+  "environment": "production",
+  "resources": [
+    {
+      "type": "Stage",
+      "title": "main",
+      "tags": ["stage"],
+      "exported": false,
+      "parameters": {
+        "name": "main"
+      }
+    },
+    {
+      "type": "Class",
+      "title": "Settings",
+      "tags": ["class","settings"],
+      "exported": false
+    },
+    {
+      "type": "Class",
+      "title": "main",
+      "tags": ["class"],
+      "exported": false,
+      "parameters": {
+        "name": "main"
+      }
+    },
+    {
+      "type": "File",
+      "title": "/tmp/test_file.txt",
+      "tags": ["file","class"],
+      "file": "/etc/puppetlabs/code/environments/production/manifests/file.pp",
+      "line": 1,
+      "exported": false,
+      "parameters": {
+        "ensure": "file",
+        "content": "This is a test of the emeregency broadcast stytem.  This is only a test!",
+        "mode": "0600",
+        "owner": "root",
+        "group": "root",
+        "backup": false
+      }
+    },
+    {
+      "type": "Package",
+      "title": "tree",
+      "tags": ["package","tree","class"],
+      "file": "/etc/puppetlabs/code/environments/production/manifests/package.pp",
+      "line": 1,
+      "exported": false,
+      "parameters": {
+        "ensure": "present"
+      }
+    },
+    {
+      "type": "Group",
+      "title": "admin",
+      "tags": ["group","admin","class"],
+      "file": "/etc/puppetlabs/code/environments/production/manifests/user.pp",
+      "line": 1,
+      "exported": false,
+      "parameters": {
+        "ensure": "present"
+      }
+    },
+    {
+      "type": "User",
+      "title": "admin",
+      "tags": ["user","admin","class"],
+      "file": "/etc/puppetlabs/code/environments/production/manifests/user.pp",
+      "line": 5,
+      "exported": false,
+      "parameters": {
+        "ensure": "present",
+        "password": "$1$EvcLeM2E$065lvjVQwHCs04lXCKfGi.",
+        "gid": "wheel",
+        "home": "/home/admin",
+        "managehome": true
+      }
+    },
+    {
+      "type": "Node",
+      "title": "default",
+      "tags": ["node","default","class"],
+      "exported": false
+    }
+  ],
+  "edges": [
+    {
+      "source": "Stage[main]",
+      "target": "Class[Settings]"
+    },
+    {
+      "source": "Stage[main]",
+      "target": "Class[main]"
+    },
+    {
+      "source": "Class[main]",
+      "target": "File[/tmp/test_file.txt]"
+    },
+    {
+      "source": "Class[main]",
+      "target": "Package[tree]"
+    },
+    {
+      "source": "Class[main]",
+      "target": "Group[admin]"
+    },
+    {
+      "source": "Class[main]",
+      "target": "User[admin]"
+    },
+    {
+      "source": "Class[main]",
+      "target": "Node[default]"
+    }
+  ],
+  "classes": [
+    "settings",
+    "default"
+  ]
+}
